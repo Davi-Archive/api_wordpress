@@ -13,6 +13,8 @@ require_once($template_directory . "/endpoints/produto_post.php");
 require_once($template_directory . "/endpoints/produto_get.php");
 require_once($template_directory . "/endpoints/produto_delete.php");
 
+require_once($template_directory . "/endpoints/transacao_post.php");
+require_once($template_directory . "/endpoints/transacao_get.php");
 
 
 function get_produto_id_by_slug($slug)
@@ -30,6 +32,10 @@ function get_produto_id_by_slug($slug)
 
     return array_shift($posts);
 }
+
+add_action('rest_pre_serve_request', function () {
+    header('Access-Control-Expose-Headers: X-Total-Count');
+});
 
 
 function expire_token()

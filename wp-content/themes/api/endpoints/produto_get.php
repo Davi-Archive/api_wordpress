@@ -56,7 +56,7 @@ function api_produtos_get($request)
 {
 
     $q = sanitize_text_field($request['q']) ?: '';
-    $_page = sanitize_text_field($request['_page']) ?: 0;
+    $_page = sanitize_text_field($request['_page']) ?: 1;
     $_limit = sanitize_text_field($request['_limit']) ?: 9;
     $usuario_id = sanitize_text_field($request['usuario_id']) ?: '';
 
